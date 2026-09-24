@@ -9,13 +9,14 @@ simulation, training, evaluation, and policy export.
 ## Fork point
 
 - Upstream: `https://github.com/PufferAI/PufferLib.git`
+- Fork: `https://github.com/Dembry123/bottlecap-rl.git`
 - Upstream branch: `5.0`
 - Initial upstream commit: `6ffa5b10dbbbe4d1e8288367c7d9d3acd3bad4a2`
 - Local development branch: `bottlecap-rl`
 
-The local repository currently has an `upstream` remote only. A GitHub `origin`
-must not be added until `Dembry123/bottlecap-rl` (or another chosen remote) is
-actually created.
+The local `origin` remote is the user-owned fork. The `upstream` remote remains
+PufferAI/PufferLib so upstream 5.0 changes can be fetched without confusing the
+two repositories.
 
 ## Current status
 
@@ -67,9 +68,8 @@ git fetch upstream
 git rebase upstream/5.0
 ```
 
-After a real GitHub repository is created:
+Push project changes to the fork's project branch:
 
 ```bash
-git remote add origin https://github.com/Dembry123/bottlecap-rl.git
-git push -u origin bottlecap-rl
+git push origin bottlecap-rl
 ```
