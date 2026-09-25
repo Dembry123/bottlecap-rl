@@ -1,0 +1,59 @@
+{
+  "mesh_units": "millimeters",
+  "urdf_mesh_scale": [
+    0.001,
+    0.001,
+    0.001
+  ],
+  "files": [
+    {
+      "file": "base.stl",
+      "source_file": "base_gripper.stl",
+      "source_sha256": "d684bbc670e1b6b7d2af5f9ad9f1fecdb1873bb9946db40e43623ed530d85158",
+      "sha256": "d684bbc670e1b6b7d2af5f9ad9f1fecdb1873bb9946db40e43623ed530d85158",
+      "triangles": 7948
+    },
+    {
+      "file": "gear.stl",
+      "source_file": "Unnamed-Spur Gear (14 teeth).stl",
+      "source_sha256": "b650e2f3532c1038886ca997b98d4119f36253793f1e4e2b3af1d5f146912f03",
+      "sha256": "b650e2f3532c1038886ca997b98d4119f36253793f1e4e2b3af1d5f146912f03",
+      "triangles": 2326
+    },
+    {
+      "file": "primary-rack.stl",
+      "source_file": "gripper-main-lower.step",
+      "source_sha256": "bc50368658efa21daa3df047f72bd2e8d3350985c6be830b4361b9fe5e984631",
+      "sha256": "5a13eed8b6ec642f8a058357361e80dd2e2564d8c395791d12ae026049d2cd4c",
+      "triangles": 1818
+    },
+    {
+      "file": "primary-finger.stl",
+      "source_file": "pointy - primary Finger (1).step",
+      "source_sha256": "8793bb2d45993b6c771974f33c492ea65e293ff24946e93efe49b603818a2230",
+      "sha256": "3e1e77167bb27cbb5ff202911318eb394782173546fee4d9dfeb44dcdb9f8e1a",
+      "triangles": 514
+    },
+    {
+      "file": "secondary-rack.stl",
+      "source_file": "gripper secondary main.step",
+      "source_sha256": "05d89a3934eab0bd973b294439c2b91610305011d1945c7fd8bf36a315628df9",
+      "sha256": "37c72bb861d04f10de519c7cf45a7fdae9b8849c290bfd38d920646139a5e695",
+      "triangles": 868
+    },
+    {
+      "file": "secondary-finger.stl",
+      "source_file": "pointy finger secondary.step",
+      "source_sha256": "be07d3df0fe469ec1b718d1260fdb24d9c19b4a95cf71627a3a5b687c06e2ac9",
+      "sha256": "6efc51fb742753678f2fdfe5bcb70d09c22eed3e3d9ec94a87244cb2cf71baeb",
+      "triangles": 434
+    },
+    {
+      "file": "end-stop.stl",
+      "source_file": "gripper main lower - end stop.step",
+      "source_sha256": "6c27a72bfaa2ac8dbfd60606f8e6133fe6862ed10438ac312af4b0fd6fa3d786",
+      "sha256": "ce8f28a82bcfc5ba4382b90841c0f87bb4436a8fdb6cda6a9b741a0f4aa2bedc",
+      "triangles": 1080
+    }
+  ]
+}

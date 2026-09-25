@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+
+<robot name="mini_6dof_arm">
+
+  <!-- ###############################
+       LINKS
+       ############################### -->
+
+  <link name="base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/base.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/base.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.191955"/>
+      <inertia
+        ixx="1.841e-4" ixy="3.5e-11" ixz="8.1195e-5"
+        iyy="2.948e-4" iyz="-7.4e-11"
+        izz="2.374e-4"/>
+    </inertial>
+  </link>
+
+  <link name="L1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L1.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L1.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.103485"/>
+      <inertia
+        ixx="1.136e-4" ixy="-1.8e-11" ixz="1.6e-11"
+        iyy="1.087e-4" iyz="1.3797e-6"
+        izz="1.5099e-5"/>
+    </inertial>
+  </link>
+
+  <link name="L2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L2.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L2.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.148586"/>
+      <inertia
+        ixx="1.87e-3" ixy="-1.852e-9" ixz="-5.8291e-7"
+        iyy="1.853e-3" iyz="-5.4339e-6"
+        izz="3.1532e-5"/>
+    </inertial>
+  </link>
+
+  <link name="L3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L3.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L3.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.19883"/>
+      <inertia
+        ixx="5.208e-4" ixy="1.562e-4" ixz="-7.821e-4"
+        iyy="2.074e-3" iyz="6.7509e-5"
+        izz="1.679e-3"/>
+    </inertial>
+  </link>
+
+  <link name="L4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L4.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L4.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.105559"/>
+      <inertia
+        ixx="1.5212e-5" ixy="1.5024e-6" ixz="-1.4847e-7"
+        iyy="1.272e-4" iyz="1.924e-9"
+        izz="1.322e-4"/>
+    </inertial>
+  </link>
+
+  <link name="L5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L5.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="stl-files/L5.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.156359"/>
+      <inertia
+        ixx="6.9948e-5" ixy="1.022e-4" ixz="-3.9923e-5"
+        iyy="6.747e-4" iyz="3.5287e-6"
+        izz="7.044e-4"/>
+    </inertial>
+  </link>
+
+  <!-- joint6's mounting frame. The former soldering attachment remains in
+       stl-files/wrist.stl as a legacy asset; the installed tool is the gripper. -->
+  <link name="wrist"/>
+
+  <link name="tool_link"/>
+
+  <!-- ###############################
+       JOINTS
+       ############################### -->
+
+  <joint name="joint1" type="revolute">
+    <parent link="base"/>
+    <child  link="L1"/>
+    <origin xyz="0 0 0.0843" rpy="0 0 0"/>
+    <axis  xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708" effort="1.9123" velocity="5.4542"/>
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <parent link="L1"/>
+    <child  link="L2"/>
+    <origin xyz="0 0 0.04315" rpy="0 0 0"/>
+    <axis  xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="1.5708" effort="1.9123" velocity="5.4542"/>
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <parent link="L2"/>
+    <child  link="L3"/>
+    <origin xyz="0 0 0.19715" rpy="0 0 0"/>
+    <axis  xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="1.5708" effort="1.9123" velocity="5.4542"/>
+  </joint>
+
+  <joint name="joint4" type="revolute">
+    <parent link="L3"/>
+    <child  link="L4"/>
+    <origin xyz="0.176556 0 0.0455" rpy="0 0 0"/>
+    <axis  xyz="1 0 0"/>
+    <limit lower="-3.1416" upper="3.1416" effort="1.9123" velocity="5.4542"/>
+  </joint>
+
+  <joint name="joint5" type="revolute">
+    <parent link="L4"/>
+    <child  link="L5"/>
+    <origin xyz="0.05515 0 0" rpy="0 0 0"/>
+    <axis  xyz="0 1 0"/>
+    <limit lower="-1.8326" upper="2.0944" effort="1.9123" velocity="5.4542"/>
+  </joint>
+
+  <joint name="joint6" type="revolute">
+    <parent link="L5"/>
+    <child  link="wrist"/>
+    <origin xyz="0.0773 0 0" rpy="0 0 0"/>
+    <axis  xyz="1 0 0"/>
+    <limit lower="-3.1416" upper="3.1416" effort="1.9123" velocity="5.4542"/>
+  </joint>
+
+  <joint name="fixed_tool" type="fixed">
+    <parent link="wrist"/>
+    <child  link="tool_link"/>
+    <origin xyz="0.180 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!-- Gripper CAD is in millimeters; link frames and joint travel are meters.
+       See assembly/gripper.md for mounting, rack ratio, and calibration scope. -->
+  <material name="gripper_olive"><color rgba="0.13 0.18 0.07 1"/></material>
+  <material name="gripper_black"><color rgba="0.015 0.018 0.016 1"/></material>
+  <link name="gripper_base">
+    <visual>
+      <origin xyz="-0.0563 0.058116842685690 0" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/base.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_olive"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0563 0.058116842685690 0" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/base.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <!-- Simplified STS3215 case; detailed plastic parts use the supplied CAD. -->
+    <visual>
+      <origin xyz="0.032615 0 0"/>
+      <geometry><box size="0.04523 0.02473 0.029"/></geometry>
+      <material name="gripper_black"/>
+    </visual>
+  </link>
+  <joint name="gripper_mount" type="fixed">
+    <parent link="wrist"/><child link="gripper_base"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="gripper_pinion">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141592653589793 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/gear.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_olive"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141592653589793 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/gear.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <joint name="gripper_drive" type="revolute">
+    <parent link="gripper_base"/><child link="gripper_pinion"/>
+    <origin xyz="0.045115 0 -0.018949600608384" rpy="0 0 0"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="0" upper="2.879793265790644" effort="1.9123" velocity="2.094395102393195"/>
+  </joint>
+  <link name="gripper_primary">
+    <visual>
+      <origin xyz="0.030346030695402 -0.030591211627075 -0.023449600608384" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/primary-rack.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.030346030695402 -0.030591211627075 -0.023449600608384" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/primary-rack.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.030346030695402 -0.030591211627075 -0.023449600608384" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/primary-finger.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_olive"/>
+    </visual>
+    <collision>
+      <origin xyz="0.030346030695402 -0.030591211627075 -0.023449600608384" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/primary-finger.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.030346030695402 -0.030591211627075 -0.023449600608384" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/end-stop.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.030346030695402 -0.030591211627075 -0.023449600608384" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/end-stop.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <joint name="gripper_primary_slide" type="prismatic">
+    <parent link="gripper_base"/><child link="gripper_primary"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="0.040317105721069" effort="136.592857142857" velocity="0.029321531433505"/>
+    <!-- 14-tooth, module-2 pinion: 14 mm of rack travel per radian. -->
+    <mimic joint="gripper_drive" multiplier="0.014" offset="0"/>
+  </joint>
+  <link name="gripper_secondary">
+    <visual>
+      <origin xyz="0.059884092086197 0.030590989589690 -0.023449600608384" rpy="-1.570796326794897 0 1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/secondary-rack.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.059884092086197 0.030590989589690 -0.023449600608384" rpy="-1.570796326794897 0 1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/secondary-rack.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.059884092086197 0.030590989589690 -0.023449600608384" rpy="-1.570796326794897 0 1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/secondary-finger.stl" scale="0.001 0.001 0.001"/></geometry>
+      <material name="gripper_olive"/>
+    </visual>
+    <collision>
+      <origin xyz="0.059884092086197 0.030590989589690 -0.023449600608384" rpy="-1.570796326794897 0 1.570796326794897"/>
+      <geometry><mesh filename="stl-files/gripper/secondary-finger.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <joint name="gripper_secondary_slide" type="prismatic">
+    <parent link="gripper_base"/><child link="gripper_secondary"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0" upper="0.040317105721069" effort="136.592857142857" velocity="0.029321531433505"/>
+    <!-- 14-tooth, module-2 pinion: 14 mm of rack travel per radian. -->
+    <mimic joint="gripper_drive" multiplier="0.014" offset="0"/>
+  </joint>
+  <!-- Geometric fingertip frame, separate from the existing controller TCP. -->
+  <link name="gripper_tip"/>
+  <joint name="fixed_gripper_tip" type="fixed">
+    <parent link="gripper_base"/><child link="gripper_tip"/>
+    <origin xyz="0.146915092086197 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>

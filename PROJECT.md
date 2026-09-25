@@ -20,9 +20,13 @@ two repositories.
 
 ## Current status
 
-The repository contains the unmodified PufferLib training stack and its CUDA
-Franka `robot_arm` example. No Gradient0 simulator, bottle-cap environment,
-trained policy, or GradientOS inference adapter exists yet.
+Gradient0 model snapshot is frozen under `resources/gradient0/` (URDF, meshes,
+gripper, controller limits, `MODEL.md`). A CPU bottle-cap ocean env lives in
+`ocean/bottlecap/` with URDF FK, controller limits, gripper width conversion,
+helical cap constraint, and curriculum stage-1 (holding) task wiring. Unit
+tests for FK/limits/gripper and the helix pass on Linux (`tests/bottlecap/`).
+Full `./build.sh bottlecap` / PPO smoke train is not yet verified on this Mac
+(Xcode license). No vision, CUDA port, or GradientOS runtime coupling yet.
 
 The Franka example is reference code, not a parameter file. Its seven-joint
 forward kinematics, mass and inertia tables, collision bodies, gripper,
